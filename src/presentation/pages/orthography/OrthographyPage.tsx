@@ -1,4 +1,5 @@
 import { GPTMessage, UserMessage } from "../../components/chat-bubbles";
+import { TextMessageBox } from "../../components/chat-input-boxes";
 import { TypingLoader } from "../../components/loaders";
 
 export function OrthographyPage() {
@@ -11,6 +12,11 @@ export function OrthographyPage() {
           <TypingLoader className="fade-in" />
         </div>
       </div>
+      <TextMessageBox
+        onSendMessage={(message) => console.log(message)}
+        placeholder="Envía un mensaje a ChatGPT"
+        disableCorrections
+      />
     </div>
   );
 }
