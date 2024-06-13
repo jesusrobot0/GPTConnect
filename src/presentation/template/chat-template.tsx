@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { GPTMessage, UserMessage } from "../../components/chat-bubbles";
-import { TextMessageBox } from "../../components/chat-input-boxes";
-import { TypingLoader } from "../../components/loaders";
+import { GPTMessage, UserMessage } from "../components/chat-bubbles";
+import { TextMessageBox } from "../components/chat-input-boxes";
+import { TypingLoader } from "../components/loaders";
 
-// Type message for orthograpy chat
+// Type message for ******* chat
 interface Message {
   text: string;
   isGPT: boolean;
 }
 
-export function OrthographyPage() {
+export function ChatTemplate() {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
 
@@ -26,6 +26,7 @@ export function OrthographyPage() {
       <div className="chat-messages">
         <div className="grid grid-cols-12 gap-y-2">
           <GPTMessage text="¡Hola, estoy encantado de poder ayudarte a corregir tu ortografía. ¿Tienes algún texto específico en el que necesitas ayuda o hay algo particular sobre ortografía que te gustaría aprender o revisar?" />
+
           {messages.map((message, index) =>
             message.isGPT ? (
               <GPTMessage
@@ -39,6 +40,7 @@ export function OrthographyPage() {
               />
             )
           )}
+
           {isLoading && (
             <div className="col-start-1 col-end-12 fade-in">
               <TypingLoader className="fade-in" />
