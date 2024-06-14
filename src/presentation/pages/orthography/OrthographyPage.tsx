@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { GPTMessage, UserMessage } from "../../components/chat-bubbles";
-import { TextMessageBox } from "../../components/chat-input-boxes";
+// import { TextMessageBox } from "../../components/chat-input-boxes";
 import { TypingLoader } from "../../components/loaders";
+import { TextMessageBoxFile } from "../../components/chat-input-boxes/TextMessageBoxFile";
 
 // Type message for orthograpy chat
 interface Message {
@@ -46,10 +47,15 @@ export function OrthographyPage() {
           )}
         </div>
       </div>
-      <TextMessageBox
+      {/* <TextMessageBox
         onSendMessage={(message) => handlePost(message)}
         placeholder="Envía un mensaje a ChatGPT"
         disableCorrections
+      /> */}
+      <TextMessageBoxFile
+        onSendMessage={(message) => handlePost(message)}
+        placeholder="Envía un mensaje a ChatGPT"
+        acceptedFiles="images/*"
       />
     </div>
   );
